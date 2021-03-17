@@ -19,7 +19,8 @@ SELECT
   state,
   CASE 
     WHEN state = 'CA' THEN 'yes' 
-    ELSE NULL END AS "from_california"
+    ELSE NULL 
+  END AS "from_california"
 FROM benn.college_football_players
 ORDER BY from_california;
 
@@ -38,13 +39,16 @@ SELECT
     WHEN height > 70 AND height <= 75 THEN '70-75'
     WHEN height > 75 AND height <= 80 THEN '75-80'
     WHEN height > 80 THEN '>80'
-    ELSE 'bad_height_value' END AS height_category
+    ELSE 'bad_height_value' 
+  END AS height_category
 FROM benn.college_football_players;
 
   -- Write a query that selects all columns from benn.college_football_players 
   -- and adds an additional column that displays the player's name if that player is a junior or senior.
 SELECT *, 
-  CASE WHEN year = 'JR' OR year = 'SR' THEN player_name END AS player_jr_or_sr
+  CASE 
+    WHEN year = 'JR' OR year = 'SR' THEN player_name 
+  END AS player_jr_or_sr
 FROM benn.college_football_players;
 
   -- * CASE + aggregate functions
