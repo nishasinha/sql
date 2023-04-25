@@ -1,7 +1,7 @@
 -- SQL tutorial 
 
 -- 1. convention 
-  -- table ames, column names are lowercase with underscores
+  -- table names, column names are lowercase with underscores
   -- space and case does not matter
   -- use uppercase for keywords
   

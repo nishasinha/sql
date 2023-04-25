@@ -4,10 +4,10 @@ FROM tutorial.aapl_historical_stock_price;
 
 
 -- 6. Aggregate Functions
--- The logical operators (LIKE, ILIKE, R, AND, IN, BETWEEN, ISNULL, NOT) work on one single row data across columns.
+-- The logical operators (LIKE, ILIKE, OR, AND, IN, BETWEEN, ISNULL, NOT) work on one single row data across columns.
 -- Aggregate functions (SUM, COUNT, MIN, MAX, AVG) work across rows, get value of a column from many rows to get results.
 
--- 6a. COUNT: count number of rows vertically, column can have any ata type, nulls are not counted in.
+-- 6a. COUNT: count number of rows vertically, column can have any data type, nulls are not counted in.
 
   -- COUNT all rows in dataset
 SELECT COUNT(*) 
@@ -22,7 +22,8 @@ FROM tutorial.aapl_historical_stock_price
 WHERE low IS NOT NULL
 
   -- Write a query that determines counts of every single column. Which column has the most null values?
-SELECT  COUNT(date) AS date_count, 
+SELECT  COUNT(*) AS row_count,
+        COUNT(date) AS date_count,
         COUNT(year) as year_count, 
         COUNT(month) as month_count, 
         COUNT(open) as open_count, 
@@ -109,4 +110,4 @@ GROUP BY year, month
 HAVING MAX(high) > 400
 ORDER BY year, month;
 
-  -- cluase order: SELECt -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY
+  -- Clause order: SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY
